@@ -19,19 +19,18 @@ def set_background_image(image_file):
         }}
         .stApp .main {{
             background: rgba(0, 0, 0, 0.78);
-            border-radius: 25px;
-            padding: 2rem 2rem 2.5rem;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            color: #f8f8f2;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
             backdrop-filter: blur(6px);
         }}
         .stApp .main h1, .stApp .main h2, .stApp .main h3, .stApp .main p, .stApp .main label {{
             color: #f8f8f2;
         }}
         .stApp .main .stButton>button {{
-            background-color: #222;
+            background-color: #111;
             color: #f8f8f2;
-            border: 1px solid #555;
+            border: 1px solid #444;
         }}
         </style>
         """,
