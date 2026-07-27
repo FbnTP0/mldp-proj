@@ -17,6 +17,22 @@ def set_background_image(image_file):
             background-position: center;
             background-attachment: fixed;
         }}
+        .stApp .main {{
+            background: rgba(0, 0, 0, 0.78);
+            border-radius: 25px;
+            padding: 2rem 2rem 2.5rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            color: #f8f8f2;
+            backdrop-filter: blur(6px);
+        }}
+        .stApp .main h1, .stApp .main h2, .stApp .main h3, .stApp .main p, .stApp .main label {{
+            color: #f8f8f2;
+        }}
+        .stApp .main .stButton>button {{
+            background-color: #222;
+            color: #f8f8f2;
+            border: 1px solid #555;
+        }}
         </style>
         """,
         unsafe_allow_html=True,
