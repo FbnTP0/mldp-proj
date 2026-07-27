@@ -55,18 +55,16 @@ weight_kg = st.number_input("Weight (kg)", min_value=30.0, max_value=200.0, valu
 bmi = weight_kg / ((height_cm / 100) ** 2)
 children = st.slider("Number of Children", min_value=0, max_value=5, value=0)
 smoker_toggle = st.checkbox("Smoker?", value=False)
-smoker = "yes" if smoker_toggle else "no"
+smoker_yes = 1 if smoker_toggle else 0
 
 ## Predict button
 if st.button("Predict Insurance Charges"):
-    input_df = pd.DataFrame({
+    input_encoded = pd.DataFrame({
         "age": [age],
         "bmi": [bmi],
         "children": [children],
-        "smoker": [smoker],
+        "smoker_yes": [smoker_yes],
     })
-
-    input_encoded = pd.get_dummies(input_df, columns=["smoker"], drop_first=True)
 
     model_columns = ['age', 'bmi', 'children', 'smoker_yes']
     input_encoded = input_encoded.reindex(columns=model_columns, fill_value=0)
