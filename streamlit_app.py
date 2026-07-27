@@ -17,8 +17,8 @@ def set_background_image(image_file):
             background-position: center;
             background-attachment: fixed;
         }}
-        .stApp .main {{
-            background: rgba(0, 0, 0, 0.78);
+        .stApp .main .block-container {{
+            background: rgba(0, 0, 0, 0.75);
             border-radius: 20px;
             padding: 2rem;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
