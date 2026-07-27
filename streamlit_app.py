@@ -15,28 +15,24 @@ def set_background_image(image_file):
             background-image: url("data:image/jpg;base64,{encoded}");
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; 
+            background-attachment: fixed;
         }}
 
-        [data-testid="stAppViewContainer"] > .main .block-container {{
-            background-color: rgba(0, 0, 0, 0.75);
+        div.block-container {{
+            background-color: black !important;
             border-radius: 20px;
-            padding: 2rem;
+            padding: 2rem !important;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
         }}
 
-        [data-testid="stAppViewContainer"] h1,
-        [data-testid="stAppViewContainer"] h2,
-        [data-testid="stAppViewContainer"] h3,
-        [data-testid="stAppViewContainer"] p,
-        [data-testid="stAppViewContainer"] label {{
+        h1, h2, h3, p, label, .stMarkdown {{
             color: #f8f8f2 !important;
         }}
 
-        [data-testid="stAppViewContainer"] .stButton>button {{
-            background-color: #111;
-            color: #f8f8f2;
-            border: 1px solid #444;
+        .stButton>button {{
+            background-color: grey !important;
+            color: #f8f8f2 !important;
+            border: 1px solid #666 !important;
         }}
         </style>
         """,
@@ -63,7 +59,6 @@ smoker = "yes" if smoker_toggle else "no"
 
 ## Predict button
 if st.button("Predict Insurance Charges"):
-    ## Build a single-row dataframe matching original columns
     input_df = pd.DataFrame({
         "age": [age],
         "bmi": [bmi],
@@ -71,13 +66,10 @@ if st.button("Predict Insurance Charges"):
         "smoker": [smoker],
     })
 
-    ## Apply same one-hot encoding used in training
     input_encoded = pd.get_dummies(input_df, columns=["smoker"], drop_first=True)
-
 
     model_columns = ['age', 'bmi', 'children', 'smoker_yes']
     input_encoded = input_encoded.reindex(columns=model_columns, fill_value=0)
 
-    ## Predict
     prediction = model.predict(input_encoded)[0]
     st.success(f"Predicted Insurance Charges: ${prediction:,.2f}")
