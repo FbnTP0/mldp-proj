@@ -72,4 +72,8 @@ if st.button("Predict Insurance Charges"):
     input_encoded = input_encoded.reindex(columns=model_columns, fill_value=0)
 
     prediction = model.predict(input_encoded)[0]
+    margin = max(500.0, prediction * 0.1)
+
     st.success(f"Predicted Insurance Charges: ${prediction:,.2f}")
+    st.info(f"Estimated error margin: ±${margin:,.2f}")
+    st.caption(f"Likely range: ${prediction - margin:,.2f} to ${prediction + margin:,.2f}")
