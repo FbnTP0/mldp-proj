@@ -15,19 +15,25 @@ def set_background_image(image_file):
             background-image: url("data:image/jpg;base64,{encoded}");
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: fixed; 
         }}
-        .stApp .main .block-container {{
-            background: rgba(0, 0, 0, 0.75);
+
+        [data-testid="stAppViewContainer"] > .main .block-container {{
+            background-color: rgba(0, 0, 0, 0.75);
             border-radius: 20px;
             padding: 2rem;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
-            backdrop-filter: blur(6px);
         }}
-        .stApp .main h1, .stApp .main h2, .stApp .main h3, .stApp .main p, .stApp .main label {{
-            color: #f8f8f2;
+
+        [data-testid="stAppViewContainer"] h1,
+        [data-testid="stAppViewContainer"] h2,
+        [data-testid="stAppViewContainer"] h3,
+        [data-testid="stAppViewContainer"] p,
+        [data-testid="stAppViewContainer"] label {{
+            color: #f8f8f2 !important;
         }}
-        .stApp .main .stButton>button {{
+
+        [data-testid="stAppViewContainer"] .stButton>button {{
             background-color: #111;
             color: #f8f8f2;
             border: 1px solid #444;
