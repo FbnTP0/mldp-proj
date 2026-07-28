@@ -105,10 +105,13 @@ children = st.slider(
     value=0
 )
 
-smoker = st.selectbox(
-    "Smoking Status",
-    options=["no", "yes"]
+# Smoker toggle
+smoker_toggle = st.toggle(
+    "Smoker?",
+    value=False
 )
+
+smoker_yes = 1 if smoker_toggle else 0
 
 region = st.selectbox(
     "Region",
@@ -124,14 +127,12 @@ region = st.selectbox(
 # Predict button
 if st.button("Predict Insurance Charges"):
 
-    # Create encoded input using the same dummy variables
-    # produced by pd.get_dummies(drop_first=True)
     input_encoded = pd.DataFrame({
         "age": [age],
         "bmi": [bmi],
         "children": [children],
         "sex_male": [1 if sex == "male" else 0],
-        "smoker_yes": [1 if smoker == "yes" else 0],
+        "smoker_yes": [smoker_yes],
         "region_northwest": [1 if region == "northwest" else 0],
         "region_southeast": [1 if region == "southeast" else 0],
         "region_southwest": [1 if region == "southwest" else 0]
